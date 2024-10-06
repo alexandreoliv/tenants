@@ -11,14 +11,29 @@ import {
 	Radio,
 } from "@mui/material";
 
-import { useState } from "react";
+import LinearProgressWithLabel from "./LinearProgressWithLabel";
+
+import { useEffect, useState } from "react";
 
 const TenantForm = () => {
+	const [progress, setProgress] = useState<number>(0);
 	const [name, setName] = useState<string>("");
 	const [email, setEmail] = useState<string>("");
 	const [phone, setPhone] = useState<string>("");
 	const [salary, setSalary] = useState<string>("");
 	
+	useEffect(() => {
+		const totalFields = 4;
+		let filledFields = 0;
+		
+		if (name) filledFields++;
+		if (email) filledFields++;
+		if (phone) filledFields++;
+		if (salary) filledFields++;
+
+		setProgress((filledFields / totalFields) * 100);
+	}, [name, email, phone, salary]);
+
 	const handleInputChange = (
 		setter: React.Dispatch<React.SetStateAction<string>>,
 		value: string,
@@ -38,6 +53,8 @@ const TenantForm = () => {
 			>
 				Tenant Application
 			</Typography>
+
+			<LinearProgressWithLabel value={progress} />
 
 			<form name="basic" autoComplete="off">
 				<TextField
