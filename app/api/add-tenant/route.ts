@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { validateTenantData } from "@/app/utils/validation";
+import { validateTenantData } from "../../utils/validation";
 
 export async function POST(request: NextRequest) {
 	try {
