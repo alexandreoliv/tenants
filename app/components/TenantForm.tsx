@@ -96,7 +96,7 @@ const TenantForm = () => {
 	return (
 		<Container>
 			<Typography
-				variant="h4"
+				variant="h5"
 				style={{
 					fontWeight: "bold",
 					margin: "0 0 10px 10px",
@@ -208,7 +208,7 @@ const TenantForm = () => {
 				/>
 
 				<FormControl component="fieldset" margin="normal" required>
-					<Typography variant="h6" gutterBottom>
+					<Typography variant="h6" gutterBottom sx={{ fontSize: '1rem' }}>
 						Salary Indication *
 					</Typography>
 					<RadioGroup

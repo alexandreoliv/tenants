@@ -3,11 +3,11 @@ const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const phoneRegex = /^\d{7,50}$/;
 
 export const salaryRanges = [
-	"0 - 1.000",
-	"1.000 - 2.000",
-	"2.000 - 3.000",
-	"3.000 - 4.000",
-	"More than 4.000",
+	"0€ - 1.000€",
+	"1.000€ - 2.000€",
+	"2.000€ - 3.000€",
+	"3.000€ - 4.000€",
+	"More than 4.000€",
 ];
 
 export const validateName = (value: string) => nameRegex.test(value);

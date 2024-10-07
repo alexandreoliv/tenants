@@ -9,7 +9,7 @@ describe('Test API Route: POST /api/add-tenant', () => {
         name: 'Alex',
         email: 'alex@buena.com',
         phone: '1234567',
-        salary: 'More than 4.000',
+        salary: 'More than 4.000€',
       }),
     });
 
@@ -27,7 +27,7 @@ describe('Test API Route: POST /api/add-tenant', () => {
         name: '',
         email: 'alex@buena.com',
         phone: '1234567',
-        salary: 'More than 4.000',
+        salary: 'More than 4.000€',
       }),
     });
 

@@ -64,27 +64,27 @@ const FormConfirmation: React.FC<FormConfirmationProps> = ({
 
 	return (
 		<Container maxWidth="sm">
-			<Typography variant="h4" gutterBottom align="center">
+			<Typography variant="h5" gutterBottom align="center">
 				Confirm your details
 			</Typography>
 
 			<Box my={4}>
-				<Typography variant="h6">Name:</Typography>
+				<Typography variant="h6" sx={{ fontSize: '1rem' }}>Name:</Typography>
 				<Typography variant="body1" gutterBottom>
 					{name}
 				</Typography>
 
-				<Typography variant="h6">Email:</Typography>
+				<Typography variant="h6" sx={{ fontSize: '1rem' }}>Email:</Typography>
 				<Typography variant="body1" gutterBottom>
 					{email}
 				</Typography>
 
-				<Typography variant="h6">Phone Number:</Typography>
+				<Typography variant="h6" sx={{ fontSize: '1rem' }}>Phone Number:</Typography>
 				<Typography variant="body1" gutterBottom>
 					{phone}
 				</Typography>
 
-				<Typography variant="h6">Salary Indication:</Typography>
+				<Typography variant="h6" sx={{ fontSize: '1rem' }}>Salary Indication:</Typography>
 				<Typography variant="body1">{salary}</Typography>
 			</Box>
 
