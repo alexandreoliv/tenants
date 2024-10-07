@@ -26,6 +26,8 @@ import {
     validateSalary,
 } from '../utils/validation'
 
+import { salaryRanges } from '../utils/validation';
+
 import { useEffect, useState } from "react";
 
 const TenantForm = () => {
@@ -216,31 +218,14 @@ const TenantForm = () => {
 							setSalaryValid(validateSalary(e.target.value));
 						}}
 					>
-						<FormControlLabel
-							value="0 - 1.000"
-							control={<Radio />}
-							label="0 - 1.000"
-						/>
-						<FormControlLabel
-							value="1.000 - 2.000"
-							control={<Radio />}
-							label="1.000 - 2.000"
-						/>
-						<FormControlLabel
-							value="2.000 - 3.000"
-							control={<Radio />}
-							label="2.000 - 3.000"
-						/>
-						<FormControlLabel
-							value="3.000 - 4.000"
-							control={<Radio />}
-							label="3.000 - 4.000"
-						/>
-						<FormControlLabel
-							value="More than 4.000"
-							control={<Radio />}
-							label="More than 4.000"
-						/>
+						{salaryRanges.map((range) => (
+                    		<FormControlLabel
+                        		key={range}
+                        		value={range}
+                        		control={<Radio />}
+                        		label={range}
+                    		/>
+                		))}
 					</RadioGroup>
 				</FormControl>
 
