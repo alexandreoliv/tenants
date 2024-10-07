@@ -17,6 +17,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
 
 import LinearProgressWithLabel from "./LinearProgressWithLabel";
+import FormConfirmation from "./FormConfirmation";
 
 import {
     validateName,
@@ -37,6 +38,7 @@ const TenantForm = () => {
 	const [emailValid, setEmailValid] = useState<boolean>(false);
 	const [phoneValid, setPhoneValid] = useState<boolean>(false);
 	const [salaryValid, setSalaryValid] = useState<boolean>(false);
+	const [showConfirmation, setShowConfirmation] = useState<boolean>(false);
 	
 	useEffect(() => {
 		const totalFields = 4;
@@ -60,6 +62,35 @@ const TenantForm = () => {
 		setValid(validator(value));
 	};
 
+	const handleProceed = () => {
+		setShowConfirmation(true);
+	};
+
+	const handleCancel = () => {
+		setName("");
+		setEmail("");
+		setPhone("");
+		setSalary("");
+		setNameValid(false);
+		setEmailValid(false);
+		setPhoneValid(false);
+		setSalaryValid(false);
+		setProgress(0);
+		setShowConfirmation(false);
+	};
+
+	if (showConfirmation) {
+		return (
+		  <FormConfirmation
+			name={name}
+			email={email}
+			phone={phone}
+			salary={salary}
+			onCancel={handleCancel}
+		  />
+		);
+	}
+
 	return (
 		<Container>
 			<Typography
@@ -75,7 +106,13 @@ const TenantForm = () => {
 
 			<LinearProgressWithLabel value={progress} />
 
-			<form name="basic" autoComplete="off">
+			<form
+				name="basic"
+				autoComplete="off"
+				onSubmit={(e) => {
+					e.preventDefault(); // prevent adding data to the URL
+				}}
+			>
 				<TextField
 					label="Name"
 					name="name"
@@ -213,6 +250,7 @@ const TenantForm = () => {
 					color="primary"
 					disabled={progress !== 100}
 					fullWidth
+					onClick={handleProceed}
 				>
 					Proceed
 				</Button>
